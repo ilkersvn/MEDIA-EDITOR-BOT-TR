@@ -1,25 +1,25 @@
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-START_MSG = """**Hi {}
+START_MSG = """**Merhaba {}
   
-I am an Media Editor bot ...
+Ben Medya Değiştirme botuyum...
 
-You can edit document,video,gif,audio,photo etc..
+Belge, video, gif, ses, fotoğraf vb. düzenleyebilirsiniz...
 
-For More hit /help **
+Daha fazla bilgi için /help **
 
 """
 
 
 HELP_MSG = """
-Follow the step..
+Sırasıyla adımları takip edin..
 
-🌀First send me an media that you need to replace the other one
+🌀Önce bana değiştirmek istediğiniz medyanın yerine bir medya gönderin
 
-🌀Send the link of the media that you need to Edit
+🌀Değiştirmek istediğiniz medyanın bağlantısını gönderin
 
-NB: Note the bot is admin in the channel 
+Not: Botun kanalda yönetici olduğuna dikkat edin
 
 """
 
@@ -33,7 +33,7 @@ async def start(client, message):
     await message.reply_text(
         text=START_MSG.format(message.from_user.mention),
         disable_web_page_preview=True,
-        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="OWNER",url = "t.me/jack_of_tg")]]),
+        reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton(text="OWNER",url = "t.me/")]]),
         reply_to_message_id=message.message_id
     )    
 
