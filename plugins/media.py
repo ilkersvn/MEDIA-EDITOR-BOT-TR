@@ -32,12 +32,12 @@ async def media(client, message):
          print('no way')
 
      try:
-         a = await client.ask(message.chat.id,'Now send me the link of the message of the channnel that you need to edit',
-                    filters=filters.text, timeout=30)
+         a = await client.ask(message.chat.id,'Şimdi değiştirmek istediğiniz medyanın kanal bağlantısını bana gönderin',
+                    filters=filters.text, timeout=60)
 
      except TimeoutError:
            await message.reply_text(
-             "```Session Timed Out.Resend the file to Start again```",
+             "```Oturum Zaman Aşımı. İşlemi tekrar başlatmak için medyayı yeniden gönderin```",
              parse_mode="md",
              quote=True
            )
@@ -56,10 +56,10 @@ async def media(client, message):
      try:
          is_admin=await client.get_chat_member(chat_id=chid, user_id=message.from_user.id)
      except UserNotParticipant:
-          await message.reply("It seems you are not a member of this channel and hence you can't do this action.")
+          await message.reply("Görünüşe göre bu kanalın üyesi değilsiniz ve bu nedenle bu işlemi yapamazsınız.")
           return
      if not is_admin.can_edit_messages:
-        await message.reply("You are not permited to do this, since you do not have the right to edit posts in this channel.")
+        await message.reply("Bu kanaldaki gönderileri düzenleme hakkınız olmadığı için bunu yapmanıza izin verilmiyor.")
         return
             
      try:
@@ -71,7 +71,7 @@ async def media(client, message):
      except Exception as e:
            await message.reply_text(e)
            return
-     await message.reply_text('**successfully Edited the media**')
+     await message.reply_text('✔️Medya Başarıyla Değiştirildi✔️')
 
          
    
